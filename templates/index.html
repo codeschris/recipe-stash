@@ -1,10 +1,9 @@
 {% extends 'base.html' %}
 {% block title %}Home - Recipe Organizer{% endblock %}
 {% block body %}
-
 {% for recipe in recipes %}
     <div class="flex justify-center">
-        <div class="w-1/2 bg-gray-300 my-3 border-solid border-black p-5">
+        <div class="w-1/2 bg-gray-300 mt-5 my-3 border-solid border-2 border-black p-5 sm:w-3/4">
             <!--<span class="text-sm">{{ recipe['created']}}</span>-->
             <h1 class="font-bold text-4xl">{{ recipe['title'] | safe }}</h1>
             <button class="flex mt-2" id="readMore">Read More</button>
