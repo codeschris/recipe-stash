@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %} Add a recipe - Recipe Organizer {% endblock %}
+{% block body %}
+<h1 class="p-4 font-bold text-center">Add a new recipe</h1>
+<div class="flex flex-col justify-center px-6">
+    <div>
+        <form method="post" class="">
+            <div>
+                <label for="title" class="block leading-6 mb-2">Title of the recipe</label>
+                <textarea name="title" placeholder="Title (Use Markdown)"
+                    type="text" value="{{ request.form['title'] }}" 
+                    cols="30" rows="3"
+                    class="block w-1/2 rounded-md px-2 py-1.5 border-0 ring-1 ring-gray-500 ring-inset shadow-sm"></textarea>
+            </div>
+            <div>
+                <label for="ingredients" class="block leading-6 mb-2">Ingredients</label>
+                <textarea name="ingredients" placeholder="Ingredients"
+                    type="text" value="{{ request.form['ingredients'] }}" 
+                    cols="30" rows="3"
+                    class="block w-1/2 rounded-md px-2 py-1.5 border-0 ring-1 ring-gray-500 ring-inset shadow-sm support-answer-textarea"></textarea>
+            </div>
+            <div>
+                <label for="procedure" class="block leading-6 mb-2">Procedure</label>
+                <textarea name="guide" placeholder="Procedure"
+                    type="text" value="{{ request.form['guide'] }}" 
+                    cols="30" rows="3"
+                    class="block w-1/2 rounded-md px-2 py-1.5 border-0 ring-1 ring-gray-500 ring-inset shadow-sm support-answer-textarea"></textarea>
+            </div>
+            <div>
+                <label for="servings" class="block leading-6 mb-2">Servings</label>
+                <textarea name="servings" placeholder="Servings"
+                    type="text" value="{{ request.form['servings'] }}" 
+                    cols="30" rows="3"
+                    class="block w-1/2 rounded-md px-2 py-1.5 border-0 ring-1 ring-gray-500 ring-inset shadow-sm support-answer-textarea"></textarea>
+            </div>
+            <div>
+                <button type="submit" class="flex w-1/4 mt-3 py-2 justify-center rounded-md bg-blue-400 hover:bg-indigo-600 font-bold">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

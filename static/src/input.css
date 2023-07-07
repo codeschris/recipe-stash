@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    font-family: "Barlow", serif;
+    overflow-x: hidden;
+}
+
+/*Allowing newline function in textarea*/
+.support-answer-textarea {
+    white-space: pre-wrap;
+}

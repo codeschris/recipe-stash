@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Home - Recipe Organizer{% endblock %}
+{% block body %}
+
+{% for recipe in recipes %}
+    <div class="flex justify-center md:h-full">
+        <div class="w-1/2 bg-gray-300 my-3 border-solid border-black p-5">
+            <!--<span class="text-sm">{{ recipe['created']}}</span>-->
+            <h1 class="font-bold text-4xl">{{ recipe['title'] | safe }}</h1>
+            <button class="flex mt-2" id="readMore">Read More</button>
+            <div id="recipe" class="hidden">
+                <h5 class="font-bold text-decoration-line: underline mt-5">Ingredients</h5>
+                <p>{{ recipe['ingredients'] | safe }}</p>
+
+                <h5 class="font-bold text-decoration-line: underline mt-5">Procedure</h5> 
+                <p>{{ recipe['guide'] | safe }}</p>
+
+                <h5 class="font-bold text-decoration-line: underline mt-5">Servings</h5>
+                <p>{{ recipe['servings'] | safe }}</p>
+                <hr class="border-black my-3">
+                <form action="{{ url_for('delete', recipe_id=recipe.id) }}" method="post">
+                    <button type="submit" class="bg-red-600 px-2 rounded-md">Delete</button>
+                </form>
+            </div>
+            
+        </div>
+    </div>  
+{% endfor %}
+
+{% endblock %}

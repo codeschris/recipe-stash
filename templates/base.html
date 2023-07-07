@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='dist/css/output.css')}}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow">
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+    <div class="w-screen flex p-4 space-x-3 justify-center bg-slate-400">
+        <a href="index.html" class="hover:text-white">Home</a>
+        <a href="create.html" class="hover:text-white">Create</a>
+    </div>
+    <div>
+        {% for message in get_flashed_messages() %}
+            <div class="alert alert-danger">{{ message }}</div>
+        {% endfor %}
+        {% block body %} {% endblock %}
+    </div>
+    <script src="{{url_for('static', filename='js/script.js')}}"></script>
+</body>
+</html>
