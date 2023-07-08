@@ -2,7 +2,10 @@
 This is a program where you store your recipes and review them anytime you want to cook that fantastic delicacy
 
 ## Description
-_to be updated soon_
+Recipe Stash is a web application where a user can keep a record of the recipe they would want close to them or their own homemade delicacies. A user inputs the title of the dish, ingredients, preparation procedure and servings and save it to the app for future reference. 
+
+### Features
+- The web app supports Markdown rendering
 
 # Tools
 - Python
