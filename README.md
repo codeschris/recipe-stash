@@ -7,9 +7,9 @@ Recipe Stash is a web application where a user can keep a record of the recipe t
 ### Features
 - The web app supports Markdown rendering
 
-# Tools
+### Languages, Database & Frameworks
 - Python
 - TailwindCSS
-- Javascript
+- Vanilla Javascript
 - SQLite3
 - HTML
