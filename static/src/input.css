@@ -11,3 +11,16 @@ body{
 .support-answer-textarea {
     white-space: pre-wrap;
 }
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgb(148 163 184);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 5px;
+}
