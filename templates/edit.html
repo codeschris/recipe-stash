@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Edit recipe: '{{ recipe.title }}'{% endblock %}
+
+{% block body %}
+<div class="flex flex-col justify-center px-6">
+    <div>
+        <form method="post" action="{{ url_for('edit', recipe_id=recipe.id) }}" class="">
+            <div>
+                <label for="title" class="block leading-6 mb-2">Title of the recipe</label>
+                <textarea name="title"
+                    type="text"
+                    class="block w-1/2 rounded-md px-2 py-1.5 border-0 ring-1 ring-gray-500 ring-inset shadow-sm">{{ recipe.title }}</textarea>
+            </div>
+            <div>
+                <label for="ingredients" class="block leading-6 mb-2">Ingredients</label>
+                <textarea name="ingredients"
+                    type="text"
+                    class="block w-1/2 rounded-md px-2 py-1.5 border-0 ring-1 ring-gray-500 ring-inset shadow-sm support-answer-textarea">{{ recipe.ingredients }}</textarea>
+            </div>
+            <div>
+                <label for="procedure" class="block leading-6 mb-2">Procedure</label>
+                <textarea name="guide"
+                    type="text"
+                    class="block w-1/2 rounded-md px-2 py-1.5 border-0 ring-1 ring-gray-500 ring-inset shadow-sm support-answer-textarea">{{ recipe.guide }}</textarea>
+            </div>
+            <div>
+                <label for="servings" class="block leading-6 mb-2">Servings</label>
+                <textarea name="servings"
+                    type="text"
+                    class="block w-1/2 rounded-md px-2 py-1.5 border-0 ring-1 ring-gray-500 ring-inset shadow-sm support-answer-textarea">{{ recipe.servings }}</textarea>
+            </div>
+            <div>
+                <button type="submit" class="flex w-1/4 mt-3 py-2 justify-center rounded-md bg-blue-400 hover:bg-indigo-600 font-bold">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

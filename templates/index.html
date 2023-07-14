@@ -17,9 +17,14 @@
                 <h5 class="font-bold text-decoration-line: underline mt-5">Servings</h5>
                 <p>{{ recipe['servings'] | safe }}</p>
                 <hr class="border-black my-3">
-                <form action="{{ url_for('delete', recipe_id=recipe.id) }}" method="post">
-                    <button type="submit" class="bg-red-600 px-2 rounded-md">Delete</button>
-                </form>
+                <div class="flex space-x-2">
+                    <form action="{{ url_for('edit', recipe_id=recipe.id) }}" method="post">
+                        <button type="submit" class="bg-indigo-600 px-2 rounded-md text-white">Edit</button>
+                    </form>
+                    <form action="{{ url_for('delete', recipe_id=recipe.id) }}" method="post">
+                        <button type="submit" class="bg-red-600 px-2 rounded-md text-white">Delete</button>
+                    </form>
+                </div>
             </div>
             
         </div>

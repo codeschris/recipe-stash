@@ -44,21 +44,57 @@ def create():
         if not title:
             flash('Title is required!')
             return redirect(url_for('index'))
-        if not ingredients:
+        elif not ingredients:
             flash('Ingredients are required!')
             return redirect(url_for('index'))
-        if not guide:
+        elif not guide:
             flash('Procedure is required!')
             return redirect(url_for('index'))
-        if not servings:
+        elif not servings:
             flash('Servings is required!')
             return redirect(url_for('index'))
-        
-        conn.execute('INSERT INTO recipes (title, ingredients, guide, servings) VALUES (?, ?, ?, ?)', (title, ingredients, guide, servings,))
-        conn.commit()
-        conn.close()
-        return redirect(url_for('index'))
+        else:
+            conn.execute('INSERT INTO recipes (title, ingredients, guide, servings) VALUES (?, ?, ?, ?)', (title, ingredients, guide, servings,))
+            conn.commit()
+            conn.close()
+            return redirect(url_for('index'))
     return render_template('create.html')
+
+@app.route('/edit/<int:recipe_id>', methods=['GET', 'POST'])
+def edit(recipe_id):
+    conn = get_db_conn()
+
+    if request.method == 'POST':
+        title = request.form.get('title')
+        ingredients = request.form.get('ingredients')
+        guide = request.form.get('guide')
+        servings = request.form.get('servings')
+
+        if not title:
+            flash('Title is required!')
+            return redirect(url_for('edit', recipe_id=recipe_id))
+        elif not ingredients:
+            flash('Ingredients are required!')
+            return redirect(url_for('edit', recipe_id=recipe_id))
+        elif not guide:
+            flash('Procedure is required!')
+            return redirect(url_for('edit', recipe_id=recipe_id))
+        elif not servings:
+            flash('Servings is required!')
+            return redirect(url_for('edit', recipe_id=recipe_id))
+        else:
+            conn.execute('UPDATE recipes SET title = ?, ingredients = ?, guide = ?, servings = ? WHERE id = ?',
+                         (title, ingredients, guide, servings, recipe_id))
+            conn.commit()
+            conn.close()
+            return redirect(url_for('index'))
+    
+    recipe = conn.execute('SELECT id, title, ingredients, guide, servings FROM recipes WHERE id = ?', (recipe_id,)).fetchone()
+    if not recipe:
+        flash('Recipe not found!')
+        return redirect(url_for('index'))
+    
+    return render_template('edit.html', recipe=recipe)
 
 @app.route('/delete/<int:recipe_id>', methods=['POST'])
 def delete(recipe_id):
