@@ -8,4 +8,4 @@ Recipe Stash is a web application where a user can keep a record of the recipe t
 - The web app supports Markdown rendering
 - Responsive screen layout for small and medium screen (prevents content compression on such screens)
 - Sqlite3 database for storing recipes passed by the user
-- User can create and delete recipes
+- User can create, edit and delete recipes
