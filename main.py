@@ -19,7 +19,7 @@ def index():
     conn = get_db_conn()
     db_recipes = conn.execute('SELECT id, created, title, ingredients, guide, servings FROM recipes;').fetchall()
 
-    #converting text in database to markdown after selecing
+    #converting text in database to markdown after selection
     recipes = []
     for recipe in db_recipes:
         recipe = dict(recipe)
